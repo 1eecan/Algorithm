@@ -8,19 +8,19 @@ visited.add(start.toString());
 const queue = [start];
 
 const getNeighbors = (vertex) => {
-  const [x, y] = vertex;
+  const [y, x] = vertex;
   const neighbors = [];
-  if (x > 0 && maps[x - 1][y] === 1) {
-    neighbors.push([x - 1, y]);
+  if (y > 0 && maps[y - 1][x] === 1) {
+    neighbors.push([y - 1, x]);
   }
-  if (y > 0 && maps[x][y - 1] === 1) {
-    neighbors.push([x, y - 1]);
+  if (x > 0 && maps[y][x - 1] === 1) {
+    neighbors.push([y, x - 1]);
   }
-  if (x < maps.length - 1 && maps[x + 1][y] === 1) {
-    neighbors.push([x + 1, y]);
+  if (y < maps.length - 1 && maps[y + 1][x] === 1) {
+    neighbors.push([y + 1, x]);
   }
-  if (y < maps[0].length - 1 && maps[x][y + 1] === 1) {
-    neighbors.push([x, y + 1]);
+  if (x < maps[0].length - 1 && maps[y][x + 1] === 1) {
+    neighbors.push([y, x + 1]);
   }
   return neighbors;
 };
