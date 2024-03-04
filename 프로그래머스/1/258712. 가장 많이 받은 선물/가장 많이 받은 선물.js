@@ -17,14 +17,14 @@ function solution(friends, gifts) {
         }
     });
     
-    for(friend in giftTable){
+    friends.forEach(give=>{
         let temp = 0;
-        for(give in giftTable[friend]){
-            if(giftTable[friend][give] > giftTable[give][friend]) temp++;
-            else if((giftTable[friend][give] === giftTable[give][friend]) && giftParams[friend]>giftParams[give]) temp++;
-        }
+        friends.forEach(take=>{
+            if(giftTable[give][take]>giftTable[take][give]) temp++;
+            else if((giftTable[give][take]===giftTable[take][give])&&(giftParams[give]>giftParams[take])) temp++;
+        });
         if(temp>answer) answer = temp;
-    }
+    })
     
     return answer;
 }
