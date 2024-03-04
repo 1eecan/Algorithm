@@ -10,11 +10,7 @@ function solution(friends, gifts) {
         const [give, take] = gift.split(" ");
         giftParams[give]++;
         giftParams[take]--;
-        if(giftTable[give][take]!==undefined){
-            giftTable[give][take]++;
-        }else{
-            giftTable[give][take] = 1;
-        }
+        giftTable[give][take]++;
     });
     
     friends.forEach(give=>{
