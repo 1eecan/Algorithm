@@ -1,5 +1,3 @@
 function solution(nums) {
-    let length = nums.length/2;
-    nums = new Set(nums);
-    return nums.size<length?nums.size:length;
+    return [...new Set(nums)].length>nums.length/2?nums.length/2:[...new Set(nums)].length;
 }
