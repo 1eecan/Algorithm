@@ -1,17 +1,11 @@
 function solution(numbers, target) {
-    let answer = 0;
-    dfs(0, 0);
-    return answer;
-    
-    function dfs(index, sum) {
-        if(index === numbers.length) {
-            if(sum === target) {
-                answer++;
-            }
-            return;
+    var answer = 0;
+    function traverse(number,index){
+        if(index===numbers.length-1 && number===target) return answer++;
+        else if(index===numbers.length-1) return;
+        traverse(number+numbers[index+1],index+1);
+        traverse(number-numbers[index+1],index+1);
         }
-        
-        dfs(index+1, sum+numbers[index]);
-        dfs(index+1, sum-numbers[index]);
-    }
+    traverse(0,-1);
+    return answer;
 }
