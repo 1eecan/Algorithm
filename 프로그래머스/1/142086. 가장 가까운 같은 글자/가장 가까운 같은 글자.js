@@ -1,16 +1,15 @@
 function solution(s) {
     var answer = [];
-    for(let i=0;i<s.length;i++){
-        let j=i-1;
-        let temp=-1;
-        while(j>=0){
+    let i=0;
+    while(i<s.length){
+        for(let j=i-1;j>0;j--){
             if(s[j]===s[i]){
-                temp=i-j;
+                answer.push(i-j);
                 break;
             }
-            j--;
         }
-        answer.push(temp);
+        if(answer[i]===undefined) answer.push(-1);
+        i++;
     }
     
     return answer;
